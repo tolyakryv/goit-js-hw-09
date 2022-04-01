@@ -12,16 +12,16 @@ event.preventDefault();
 const delay = parseInt(inputDelay.value);
 const step = parseInt(inputStep.value);
 const amount = parseInt(inputAmount.value);
-let delayCalc = delay;
+let accDelay = delay;
 for (let i=1; i<=amount; i+=1){
-  createPromise(i,delayCalc)
+  createPromise(i,accDelay)
   .then(({ position, delay }) => {
     console.log(`✅ Fulfilled promise ${position} in ${delay}ms`);
   })
   .catch(({ position, delay }) => {
     console.log(`❌ Rejected promise ${position} in ${delay}ms`);
   });
-  delayCalc += step;
+  accDelay += step;
 }
 }
 function createPromise(position, delay) {
