@@ -36,17 +36,14 @@ function onCloseFunction(date) {
 }
 function onStartclick() {
   buttonEl.disabled = true;
-  flatpic.destroy();
-
-  calcStart();
-}
-function calcStart() {
   setInterval(() => {
     const restTime = convertMs(changeDate - Date.now());
     changeInput(restTime);
     console.log(changeDate);
   }, 1000);
+
 }
+
 
 function changeInput({ days, hours, minutes, seconds }) {
   ref.days.textContent = addLeadingZero(days);
